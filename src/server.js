@@ -1,22 +1,8 @@
 import express from "express";
-import mysql2 from "mysql2/promise";
+import db from "./databases/mysqlDb.js";
 
 const app = express();
 const Port = 3500;
-// const connetion = mysql2.createConnection({
-//     host : "localhost",
-//     user: "root",
-//     port: 3306,
-//     password : "22072006",
-//     database: "apirest"
-// })
-const pool = mysql2.createPool({
-    host : "localhost",
-    user: "root",
-    port: 3306,
-    password : "22072006",
-    database: "apirest"
-})
 
 app.use(express.json());
 
@@ -25,7 +11,7 @@ app.get("/", (req,res) => {
 });
 app.get("/users", async (req,res) => {
     try{
-        const [results, fields] = await pool.execute(
+        const [results, fields] = await db.execute(
             'SELECT * FROM `users` '
         );
         console.log(results);
