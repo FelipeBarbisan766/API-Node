@@ -1,0 +1,10 @@
+#For start new Projects
+```bash
+$npm init -y
+$npm install express
+```
+#For run Project
+```bash
+$node index.js
+$node --watch index.js
+```
