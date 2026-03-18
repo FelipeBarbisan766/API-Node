@@ -17,11 +17,10 @@
   },
   "license": "ISC",
   "author": "Felipe",
-  "type": "commonjs",
-  "main": "server.js",
+  "type": "module",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch src/server.js"
   },
   "dependencies": {
     "express": "^5.2.1"
