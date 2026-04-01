@@ -1,9 +1,11 @@
 import {pool} from "../databases/mysqlDb.js";
 
+const tableName = 'municipios'
+
 export async function Get ()  {
     try{
         const [results, fields] = await pool.execute(
-            'SELECT * FROM `municipios` '
+            ` SELECT * FROM ${tableName} `
         );
         return {"message":"success","Data":results}
         
@@ -15,7 +17,7 @@ export async function Get ()  {
 export async function GetById (id)  {
     try{
         const [results, fields] = await pool.execute(
-            'SELECT * FROM `municipios` WHERE id = ? ',
+            `SELECT * FROM ${tableName} WHERE id = ? `,
             [id]
         );
         return {"message":"success","Data":results}
@@ -30,7 +32,7 @@ export async function Post( data ){
     try{
         const {municipio,uf} = data;
         const [results, fields] = await pool.execute(
-            'INSERT INTO `municipios` (`municipio`, `uf`) VALUES (?, ?); ',
+            `INSERT INTO ${tableName} (municipio, uf) VALUES (?, ?); `,
             [municipio,uf]
         );
         return {"message":"success","Data":results}
@@ -44,7 +46,7 @@ export async function Put(id,data){
     try{
         const {municipio,uf} = data;
         const [results, fields] = await pool.execute(
-            'UPDATE `municipios` SET `municipio` = ?, `uf` = ? WHERE id = ?; ',
+            `UPDATE ${tableName} SET municipio = ?, uf = ? WHERE id = ?; `,
             [municipio,uf,id]
         );
         return {"message":"success","Data":results}
@@ -57,7 +59,7 @@ export async function Put(id,data){
 export async function Delete (id)  {
     try{
         const [results, fields] = await pool.execute(
-            'DELETE FROM `municipios` WHERE id = ? ',
+            `DELETE FROM ${tableName} WHERE id = ? `,
             [id]
         );
         return {"message":"success","Data":"Usuario Deletado com Sucesso !"}
