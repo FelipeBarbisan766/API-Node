@@ -25,6 +25,35 @@ export async function GetById (id)  {
         return {"message":"error","Error":err}
     }
 };
+
+export async function Post( data ){
+    try{
+        const {userName,userPassword} = data;
+        const [results, fields] = await pool.execute(
+            'INSERT INTO `users` (`userName`, `userPassword`) VALUES (?, ?); ',
+            [userName,userPassword]
+        );
+        return {"message":"success","Data":results}
+        
+    }catch (err){
+        console.log(err);
+        return {"message":"error","Error":err}
+    }
+}
+export async function Put(id,data){
+    try{
+        const {userName,userPassword} = data;
+        const [results, fields] = await pool.execute(
+            'UPDATE `users` SET `userName` = ?, `userPassword` = ? WHERE id = ?; ',
+            [userName,userPassword,id]
+        );
+        return {"message":"success","Data":results}
+        
+    }catch (err){
+        console.log(err);
+        return {"message":"error","Error":err}
+    }
+}
 export async function Delete (id)  {
     try{
         const [results, fields] = await pool.execute(

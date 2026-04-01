@@ -16,19 +16,20 @@ GET {{apiurl}}/2
 POST {{apiurl}}
 Content-Type: {{ContentType}}
  
- {
-    "id": 4,
-    "login": "Manoel"
-  }
+{
+  "userName": "felipeBarbisan@gmail.com",
+  "userPassword": "felipe123"
+}
+
 ###
 
-PUT {{apiurl}}/4
+PUT {{apiurl}}/6
 Content-Type: {{ContentType}}
  
- {
-    "id": 4,
-    "login": "Vitor"
-  }
+{
+  "userName": "mutley@gmail.com",
+  "userPassword": "Viadao"
+}
 
 ###
 DELETE {{apiurl}}/4
