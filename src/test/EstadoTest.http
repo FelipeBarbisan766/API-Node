@@ -1,0 +1,35 @@
+@host = http://
+@dominio = localhost
+@port = :3500
+@endpoint = /estados
+@apiurl = {{host}}{{dominio}}{{port}}{{endpoint}}
+@ContentType = application/json; charset=UTF-8
+
+GET {{apiurl}}
+
+###
+
+GET {{apiurl}}/2
+
+###
+
+POST {{apiurl}}
+Content-Type: {{ContentType}}
+ 
+{
+    "estado": "Acre",
+    "uf": "AC"
+}
+
+###
+
+PUT {{apiurl}}/4
+Content-Type: {{ContentType}}
+ 
+{
+    "estado": "Minas Gerais",
+    "uf": "MG"
+}
+
+###
+DELETE {{apiurl}}/4
