@@ -1,0 +1,35 @@
+@host = http://
+@dominio = localhost
+@port = :3500
+@endpoint = /municipios
+@apiurl = {{host}}{{dominio}}{{port}}{{endpoint}}
+@ContentType = application/json; charset=UTF-8
+
+GET {{apiurl}}
+
+###
+
+GET {{apiurl}}/2
+
+###
+
+POST {{apiurl}}
+Content-Type: {{ContentType}}
+ 
+{
+    "municipio": "Maranhao",
+    "uf": "PR"
+}
+
+###
+
+PUT {{apiurl}}/4
+Content-Type: {{ContentType}}
+ 
+{
+    "municipio": "São Luis",
+    "uf": "Maranhão"
+}
+
+###
+DELETE {{apiurl}}/4
