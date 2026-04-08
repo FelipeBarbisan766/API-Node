@@ -23,7 +23,7 @@ CREATE TABLE municipios (
 
 INSERT INTO municipios (municipio,uf) VALUES
 ("Taquaritinga","SP"),
-("Joeleville","SC"),
+("Joinville","SC"),
 ("Rio de Janeiro","RJ");
 
 CREATE TABLE estados (
