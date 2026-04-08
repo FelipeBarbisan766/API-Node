@@ -1,3 +1,6 @@
+CREATE DATABASE apirest;
+USE apirest;
+
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     userName VARCHAR(100),
@@ -34,3 +37,8 @@ INSERT INTO estados (estado,uf) VALUES
 ("Sao paulo","SP"),
 ("Santa Catarina","SC"),
 ("Rio de Janeiro","RJ");
+
+-- verify data
+SELECT * FROM users ; 
+SELECT * FROM municipios ; 
+SELECT * FROM estados ; 
