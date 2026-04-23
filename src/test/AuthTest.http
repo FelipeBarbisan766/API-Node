@@ -1,0 +1,37 @@
+@host = http://
+@dominio = localhost
+@port = :3500
+@endpoint = /auth
+@apiurl = {{host}}{{dominio}}{{port}}{{endpoint}}
+@ContentType = application/json; charset=UTF-8
+
+GET {{apiurl}}
+
+###
+
+GET {{apiurl}}/2
+
+###
+
+POST {{apiurl}}/register
+Content-Type: {{ContentType}}
+ 
+{
+  "userName": "felipeBarbisan",
+  "userEmail": "felipeBarbisan@gmail.com",
+  "userPassword": "felipe123"
+}
+
+###
+
+POST {{apiurl}}/Login
+Content-Type: {{ContentType}}
+ 
+{
+  "userName": "mutley",
+  "userEmail": "mutley@gmail.com",
+  "userPassword": "Viadao"
+}
+
+###
+DELETE {{apiurl}}/4
