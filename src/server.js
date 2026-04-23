@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const app = express();
 const Port = process.env.API_PORT || 3500;
+const app = express();
 
 app.use(express.json());
 

@@ -27,13 +27,26 @@ export async function GetById (id)  {
         return {"message":"error","Error":err}
     }
 };
+export async function GetByEmail (email)  {
+    try{
+        const [results, fields] = await pool.execute(
+            `SELECT * FROM ${tableName} WHERE userEmail = ? `,
+            [email]
+        );
+        return {"message":"success","Data":results}
+        
+    }catch (err){
+        console.log(err);
+        return {"message":"error","Error":err}
+    }
+};
 
 export async function Post( data ){
     try{
-        const {userName,userPassword} = data;
+        const {userName,userEmail,userPassword} = data;
         const [results, fields] = await pool.execute(
-            `INSERT INTO ${tableName} (userName, userPassword) VALUES (?, ?); `,
-            [userName,userPassword]
+            `INSERT INTO ${tableName} (userName, userEmail, userPassword) VALUES (?, ?, ?); `,
+            [userName,userEmail,userPassword]
         );
         return {"message":"success","Data":results}
         
@@ -44,10 +57,10 @@ export async function Post( data ){
 }
 export async function Put(id,data){
     try{
-        const {userName,userPassword} = data;
+        const {userName,userEmail,userPassword} = data;
         const [results, fields] = await pool.execute(
-            `UPDATE ${tableName} SET userName = ?, userPassword = ? WHERE id = ?; `,
-            [userName,userPassword,id]
+            `UPDATE ${tableName} SET userName = ?, userEmail = ?, userPassword = ? WHERE id = ?; `,
+            [userName,userEmail,userPassword,id]
         );
         return {"message":"success","Data":results}
         
