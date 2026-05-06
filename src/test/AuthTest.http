@@ -17,9 +17,9 @@ POST {{apiurl}}/register
 Content-Type: {{ContentType}}
  
 {
-  "userName": "felipeBarbisan",
-  "userEmail": "felipeBarbisan@gmail.com",
-  "userPassword": "felipe123"
+  "name": "prova 020",
+  "password": "020",
+  "email" : "provara020@fatec.com"
 }
 
 ###
@@ -28,9 +28,9 @@ POST {{apiurl}}/Login
 Content-Type: {{ContentType}}
  
 {
-  "userName": "mutley",
-  "userEmail": "mutley@gmail.com",
-  "userPassword": "Viadao"
+  "name": "prova 020",
+  "password": "020",
+  "email" : "provara020@fatec.com"
 }
 
 ###

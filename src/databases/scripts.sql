@@ -3,13 +3,13 @@ USE apirest;
 
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
-    userName VARCHAR(100),
-    userEmail VARCHAR(100),
-    userPassword VARCHAR(250),
+    name VARCHAR(100),
+    email VARCHAR(100),
+    password VARCHAR(250),
     CONSTRAINT PK_USERS_ID PRIMARY KEY (id)
 );
 
-INSERT INTO users (`userName`, `userEmail`, `userPassword`) VALUES 
+INSERT INTO users (`name`, `email`, `password`) VALUES 
 ('jose@gmail.com', 'jose@gmail.com', '123'),
 ('marcos@etec.sp.go.br', 'marcos@etec.sp.go.br', '234'),
 ('mario@fate.sp.go.br', 'mario@fate.sp.go.br', '567'),

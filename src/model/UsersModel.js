@@ -30,7 +30,7 @@ export async function GetById (id)  {
 export async function GetByEmail (email)  {
     try{
         const [results, fields] = await pool.execute(
-            `SELECT * FROM ${tableName} WHERE userEmail = ? `,
+            `SELECT * FROM ${tableName} WHERE email = ? `,
             [email]
         );
         return {"message":"success","Data":results}
@@ -43,10 +43,10 @@ export async function GetByEmail (email)  {
 
 export async function Post( data ){
     try{
-        const {userName,userEmail,userPassword} = data;
+        const {name,email,password} = data;
         const [results, fields] = await pool.execute(
-            `INSERT INTO ${tableName} (userName, userEmail, userPassword) VALUES (?, ?, ?); `,
-            [userName,userEmail,userPassword]
+            `INSERT INTO ${tableName} (name, email, password) VALUES (?, ?, ?); `,
+            [name,email,password]
         );
         return {"message":"success","Data":results}
         
@@ -57,10 +57,10 @@ export async function Post( data ){
 }
 export async function Put(id,data){
     try{
-        const {userName,userEmail,userPassword} = data;
+        const {name,email,password} = data;
         const [results, fields] = await pool.execute(
-            `UPDATE ${tableName} SET userName = ?, userEmail = ?, userPassword = ? WHERE id = ?; `,
-            [userName,userEmail,userPassword,id]
+            `UPDATE ${tableName} SET name = ?, email = ?, password = ? WHERE id = ?; `,
+            [name,email,password,id]
         );
         return {"message":"success","Data":results}
         
