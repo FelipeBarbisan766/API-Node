@@ -1,0 +1,20 @@
+@host = http://
+@dominio = 192.168.13.243
+@port = :3600
+@endpoint = /uploads
+@apiurl = {{host}}{{dominio}}{{port}}{{endpoint}}
+@ContentType = application/json; charset=UTF-8
+
+POST  {{apiurl}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="avatar"; filename="007.jpeg"
+Content-Type: image/jpeg
+
+< ./007.jpeg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
